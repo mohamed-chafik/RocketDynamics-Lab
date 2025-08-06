@@ -1,24 +1,15 @@
-import sys
+import customtkinter as ctk
+ctk.set_appearance_mode("dark")
+ctk.set_default_color_theme("blue")
+app = ctk.CTk()
+frame = ctk.CTkFrame(
+        master=app,
+        width=200,
+        height=400,
+        border_color="#000000",   # Border color
+        border_width=2,           # Border width
+        corner_radius=10
+        )
+frame.pack()
+app.mainloop()
 
-from PyQt6.QtCore import QSize, Qt
-from PyQt6.QtWidgets import QApplication, QMainWindow, QPushButton
-
-
-# Subclass QMainWindow to customize your application's main window
-class MainWindow(QMainWindow):
-    def __init__(self):
-        super().__init__()
-
-        self.setWindowTitle("My App")
-        button = QPushButton("Press Me!")
-
-        # Set the central widget of the Window.
-        self.setCentralWidget(button)
-        self.setFixedSize(QSize(400, 300))
-
-app = QApplication(sys.argv)
-
-window = MainWindow()
-window.show()
-
-app.exec()
