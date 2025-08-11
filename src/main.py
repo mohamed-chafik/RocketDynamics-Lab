@@ -10,6 +10,6 @@ frame = ctk.CTkFrame(
         border_width=2,           # Border width
         corner_radius=10
         )
-frame.pack()
+frame.grid(row=0,column=0)
 app.mainloop()
 
