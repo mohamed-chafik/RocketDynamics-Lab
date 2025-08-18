@@ -1,15 +1,21 @@
 import customtkinter as ctk
+from tkinter import * 
+from matplotlib.figure import Figure
+from matplotlib.backends.backend_tkagg import (FigureCanvasTkAgg, 
+NavigationToolbar2Tk)
 ctk.set_appearance_mode("dark")
 ctk.set_default_color_theme("blue")
 app = ctk.CTk()
-frame = ctk.CTkFrame(
-        master=app,
-        width=200,
-        height=400,
-        border_color="#000000",   # Border color
-        border_width=2,           # Border width
-        corner_radius=10
-        )
-frame.grid(row=0,column=0)
+def plot():
+    fig = Figure(figsize=(3,3))
+    y = [i**2 for i in range(101)]
+    plot1 = fig.add_subplot(111)
+    plot1.plot(y)
+    canvas = FigureCanvasTkAgg(fig,master=app)
+    canvas.draw()
+    canvas.get_tk_widget().grid(row=0, column=0,padx=10)
+
+
+plot()
 app.mainloop()
 
